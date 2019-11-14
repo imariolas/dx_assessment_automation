@@ -1,6 +1,6 @@
 import { ClientFunction } from 'testcafe';
-import HomePage, {homePage} from './PageModel/HomePage';
-import JavascriptAlertsPage, {JSAlerts} from './PageModel/JavascriptAlertsPage';
+import HomePage, {homePage} from './Pages/HomePage';
+import JavascriptAlertsPage, {JSAlerts} from './Pages/JavascriptAlertsPage';
 
 // Base url
 const baseURL = 'http://the-internet.herokuapp.com/';
