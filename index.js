@@ -1,13 +1,21 @@
 import { ClientFunction } from 'testcafe';
 import HomePage, {homePage} from './PageModel/HomePage';
+import JavascriptAlertsPage, {JSAlerts} from './PageModel/JavascriptAlertsPage';
 
-const baseURL = 'http://the-internet.herokuapp.comm/';
+// Base url
+const baseURL = 'http://the-internet.herokuapp.com/';
+
+// gets the title of the current page
 const getPageTitle = ClientFunction(() => window.document.title);
 
-fixture('Navigate to The Internet website').page(baseURL);
+// Test description and navigation to the website page
+fixture('Navigate to The Internet website\n'
+		 + 'Click on Javascript Alerts link\n'
+		 + 'Click on the JS Confirm and accept the native dialog').page(baseURL);
 
-test('Click on Javascript Alerts link', async(t) => {
+// Test method
+test('Verify the result status for the JS Confirm Native Dialog', async(t) => {
 	await homePage._navigateToJavascriptAlerts();
-	await homePage._clickOnJSConfirmButton();
-	//await t.expect(getPageTitle()).contains('The Internet', {timeout:10000});
+	await JSAlerts._clickOnJSConfirmButton();
+	await JSAlerts.assertResultStatus();
 });
